@@ -10,6 +10,7 @@ dplyr (version 1.1.4);
 tidyverse (version 2.0.0);
 reshape2 (version 1.4.4);
 
-Please refer to the folder R/ for related code, and the folder data/ for related data objects and tables required as input files for analysis. A detailed description of the function of each part of code is provided in the related scripts.
+Please refer to the folder R/ for related code. A detailed description of the function of each part of code is provided in the related scripts.
+For data objects and tables required as input files for analysis, please download from Zenodo using the link: [10.5281/zenodo.15178698](https://doi.org/10.5281/zenodo.15178698)
 
 For any questions, please leave your comment in GitHub or contact Yibo Dai (ydai6@mdanderson.org). We will help address the issues as soon as possible.
