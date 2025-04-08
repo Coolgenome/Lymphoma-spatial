@@ -2,7 +2,7 @@
 
 This repository includes the codes used for generating the main results presented in the paper Multi-modal spatial characterization of tumor-immune microenvironments identifies targetable inflammatory niches in diffuse large B-cell lymphoma.
 
-The code has been tested in R (version 4.3.1), with the following required packages:
+The code was originally developed in R (version 4.2.0), with softwares as detailed in the manuscript. To be compatible with updated versions, the code has also been tested in R (version 4.3.1), with the following required packages:
 Seurat (version 5.1.0);
 SeuratObject (version 5.0.2);
 ggplot2 (version 3.5.1);
