@@ -9,6 +9,7 @@ ggplot2 (version 3.5.1);
 dplyr (version 1.1.4);
 tidyverse (version 2.0.0);
 reshape2 (version 1.4.4);
+plotly (version 4.10.4)
 
 Please refer to the folder R/ for related code. A detailed description of the function of each part of code is provided in the related scripts.
 For data objects and tables required as input files for analysis, please download from Zenodo using the link: [10.5281/zenodo.15178698](https://doi.org/10.5281/zenodo.15178698)
