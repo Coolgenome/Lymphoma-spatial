@@ -12,6 +12,6 @@ reshape2 (version 1.4.4);
 plotly (version 4.10.4).
 
 Please refer to the folder R/ for related code. A detailed description of the function of each part of the code is provided in the related scripts.
-We also provided demo data including around 8k cells and the cell- and sample-level metadata. It is reasonable to expect that the results generated based on demo data can be different from what was presented in the paper, while we hope the demo data can be used as input files for demonstrating the workflow of analysis.
+We also provided demo data including around 80k cells and the cell- and sample-level metadata. It is reasonable to expect that the results generated based on demo data can be different from what was presented in the paper, while we hope the demo data can be used as input files for demonstrating the workflow of analysis.
 
 For any questions, please leave your comment in GitHub or contact Yibo Dai (ydai6@mdanderson.org). We will help address the issues as soon as possible.
