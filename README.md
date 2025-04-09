@@ -11,7 +11,7 @@ tidyverse (version 2.0.0);
 reshape2 (version 1.4.4);
 plotly (version 4.10.4).
 
-Please refer to the folder R/ for related code. A detailed description of the function of each part of code is provided in the related scripts.
-The data objects and tables required as input files for analysis will be uploaded soon.
+Please refer to the folder R/ for related code. A detailed description of the aim and function of each part of code is provided in the related scripts.
+The demo data that can be used as input files for demonstrating the workflow of analysis will be uploaded soon.
 
 For any questions, please leave your comment in GitHub or contact Yibo Dai (ydai6@mdanderson.org). We will help address the issues as soon as possible.
