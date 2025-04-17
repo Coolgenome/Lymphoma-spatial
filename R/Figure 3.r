@@ -114,6 +114,9 @@ ggplot(CD274_PDCD1_mye_T_sample_for_plot, aes(x=CN_cluster1, y=interac_prop))+
     scale_color_manual(values = c("#ed2224","#fbb14d","#3B50A3","#eee817","#79c479","#55C7F3","#dad9d9"))+
     theme_classic()
 
+# statistical analysis 
+kruskal.test(interac_prop ~ CN_cluster1, data = CD274_PDCD1_mye_T_sample_for_plot)
+
 # similar for calculating the PD-L1:PD-1 interaction between C0_Tumor-B and C5_T
 
 ### Figure 3h ###
