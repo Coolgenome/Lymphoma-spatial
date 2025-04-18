@@ -51,7 +51,7 @@ Figure 4.r covers the following analysis:
 Figure 5.r covers the following analysis:  
 > •	Comparative analysis of cellular and spatial niche compositions between EBV+ and EBV- nodal lesions (Wilcoxon rank sum test)  
 > •	Comparative analysis of neighborhood compositions of C0_Tumor-B cells between EBV+ and EBV- nodal lesions  
-> •	Comparative analysis of T cell spatial locations and phenotypes between EBV+ and EBV- nodal lesions (Student's t-test)  
+> •	Comparative analysis of T cell spatial locations and phenotypes between EBV+ and EBV- nodal lesions (Student's t-test for signature score; FindAllMarkers function in Seurat for DEGs)  
 
 Figure 6.r covers the following analysis:  
 > •	Comparative analysis of cellular and spatial niche compositions across different tumor anatomical sites (Kruskal-Wallis test with Dunn's post-hoc test for pairwise comparisons)  
