@@ -26,12 +26,13 @@ Preprocessing.r covers the following analysis:
 > •	Cell type and state identification  
 
 Figure 1.r covers the following analysis:  
-> •	Dimension reduction (UMAP)  
+> •	Dimension reduction (UMAP) plot showing major cell types  
 > •	DEGs for major cell types  
 > •	Comparative analysis of major cell type compositions across CosMx SMI and CODEX datasets  
 
 Figure 2.r covers the following analysis:  
-> •	DEGs for cell states  
+> • Dimension reduction (UMAP) plot showing major cell types  
+> • DEGs for cell states  
 > •	Identification of cellular neighborhoods  
 > •	Comparative analysis of neighborhood compositions of different cell states  
 > •	Identification of spatial niches  
