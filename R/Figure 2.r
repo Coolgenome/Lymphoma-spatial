@@ -6,7 +6,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
-### Data reading in, preprocessing, cleaning, and cell type identification is described in the separate script Preprocessing.r
+### Data reading in, preprocessing, cleaning, and cell type and state identification are described in the separate script Preprocessing.r
 ### Here for demonstrating the workflow, we directly provide the demo data, including count matrix and metadata. The processing of demo data is described in Figure 1.r
 ### load data object ###
 Lymphoma_data <- readRDS("./demo_data/Lymphoma_data.rds") ### This is saved from the step of Figure 1b.
