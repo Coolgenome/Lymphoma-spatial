@@ -10,7 +10,7 @@ library(ggplot2)
 ### Figure 1a was created with Biorender ###
 
 ### Figure 1b ###
-### Data reading in, preprocessing, cleaning, and cell type identification is described in the separate script Preprocessing.r
+### Data reading in, preprocessing, cleaning, and cell type and state identification are described in the separate script Preprocessing.r
 ### Here, for convenience, we provided the demo data count matrix and detailed metadata ###
 Lymphoma_count <- readRDS("./demo_data/Lymphoma_count.rds")
 Lymphoma.meta <- readRDS("./demo_data/Lymphoma.meta.rds")
