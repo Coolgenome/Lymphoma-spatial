@@ -1,4 +1,4 @@
-### Data reading in, preprocessing, cleaning, and cell type identification
+### Data reading in, preprocessing, cleaning, and cell type and state identification
 
 ### load essential packages ###
 library(Seurat)
