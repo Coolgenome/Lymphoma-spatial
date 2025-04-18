@@ -59,8 +59,9 @@ Figure 6.r covers the following analysis:
 > •	Comparative analysis of T cell spatial locations, phenotypes, and immune checkpoint interactions across different tumor anatomical sites (Pairwise t-test)  
 
 
-A brief workflow of the analysis is shown below:
-![Workflow](https://github.com/user-attachments/assets/597917bd-b5d5-4e1f-8104-060fcecdad55)
+A brief workflow of the analysis is shown below:  
+![Workflow](https://github.com/user-attachments/assets/e7fd6d79-91ed-4c48-8fbc-d80a720b6a7d)
+
 
 
 For any questions, please leave your comment in GitHub or contact Yibo Dai (ydai6@mdanderson.org). We will help address the issues as soon as possible.
