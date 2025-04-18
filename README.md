@@ -31,7 +31,7 @@ Figure 1.r covers the following analysis:
 > •	Comparative analysis of major cell type compositions across CosMx SMI and CODEX datasets  
 
 Figure 2.r covers the following analysis:  
-> • Dimension reduction (UMAP) plot showing major cell types  
+> • Dimension reduction (UMAP) plot showing cell states  
 > • DEGs for cell states  
 > •	Identification of cellular neighborhoods  
 > •	Comparative analysis of neighborhood compositions of different cell states  
