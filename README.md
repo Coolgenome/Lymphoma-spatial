@@ -19,24 +19,24 @@ We also provided demo data including around 80k cells and the cell- and sample-l
 Here we provide the outline of analysis covered by each script:
 
 Preprocessing.r covers the following analysis:  
-•	Data reading in  
-•	Data preprocessing  
-•	Data cleaning  
-•	DEG analysis (FindAllMarkers function in Seurat, with Wilcoxon rank sum test)  
-•	Cell type and state identification  
+&nbsp;&nbsp;&nbsp;•	Data reading in  
+&nbsp;&nbsp;&nbsp;•	Data preprocessing  
+&nbsp;&nbsp;&nbsp;•	Data cleaning  
+&nbsp;&nbsp;&nbsp;•	DEG analysis (FindAllMarkers function in Seurat, with Wilcoxon rank sum test)  
+&nbsp;&nbsp;&nbsp;•	Cell type and state identification  
 
 Figure 1.r covers the following analysis:  
-•	Dimension reduction (UMAP)  
-•	DEGs for major cell types  
-•	Comparative analysis of major cell type compositions across CosMx SMI and CODEX datasets  
+&nbsp;&nbsp;&nbsp;•	Dimension reduction (UMAP)  
+&nbsp;&nbsp;&nbsp;•	DEGs for major cell types  
+&nbsp;&nbsp;&nbsp;•	Comparative analysis of major cell type compositions across CosMx SMI and CODEX datasets  
 
 Figure 2.r covers the following analysis:  
-•	DEGs for cell states  
-•	Identification of cellular neighborhoods  
-•	Comparative analysis of neighborhood compositions of different cell states  
-•	Identification of spatial niches  
-•	Comparative analysis of cell state compositions across different spatial niches  
-•	Identifying DEGs across spatial niches  
+&nbsp;&nbsp;&nbsp;•	DEGs for cell states  
+&nbsp;&nbsp;&nbsp;•	Identification of cellular neighborhoods  
+&nbsp;&nbsp;&nbsp;•	Comparative analysis of neighborhood compositions of different cell states  
+&nbsp;&nbsp;&nbsp;•	Identification of spatial niches  
+&nbsp;&nbsp;&nbsp;•	Comparative analysis of cell state compositions across different spatial niches  
+&nbsp;&nbsp;&nbsp;•	Identifying DEGs across spatial niches  
 
 Figure 3.r covers the following analysis:  
 •	Niche-specific cell function state analysis related to T cell chemotaxis, activation, and exhaustion  
