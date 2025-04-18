@@ -60,7 +60,7 @@ Figure 6.r covers the following analysis:
 
 
 A brief workflow of the analysis is shown below:  
-![Workflow](https://github.com/user-attachments/assets/e7fd6d79-91ed-4c48-8fbc-d80a720b6a7d)
+![Workflow](https://github.com/user-attachments/assets/e7372c73-b98a-4b60-9ef2-41e654853bbc)
 
 
 
