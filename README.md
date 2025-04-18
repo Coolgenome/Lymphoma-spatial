@@ -16,7 +16,7 @@ FSA (version 0.9.5).
 Please refer to the folder R/ for related code. A detailed description of the function of each part of the code is provided in the related scripts.
 We also provided demo data including around 80k cells and the cell- and sample-level metadata. It is reasonable to expect that the results generated based on demo data can be different from what was presented in the paper, while we hope the demo data can be used as input files for demonstrating the workflow of analysis.
 
-Here we provide the outline of analysis covered by each script:
+Here we provide the outline of analysis covered by each script:  
 
 Preprocessing.r covers the following analysis:  
 > •	Data reading in  
