@@ -19,11 +19,11 @@ We also provided demo data including around 80k cells and the cell- and sample-l
 Here we provide the outline of analysis covered by each script:
 
 Preprocessing.r covers the following analysis:  
-  •	Data reading in  
-  •	Data preprocessing  
-  •	Data cleaning  
-  •	DEG analysis (FindAllMarkers function in Seurat, with Wilcoxon rank sum test)  
-  •	Cell type and state identification  
+> •	Data reading in  
+•	Data preprocessing  
+•	Data cleaning  
+•	DEG analysis (FindAllMarkers function in Seurat, with Wilcoxon rank sum test)  
+•	Cell type and state identification  
 
 Figure 1.r covers the following analysis:  
 •	Dimension reduction (UMAP)  
