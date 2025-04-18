@@ -19,13 +19,9 @@ We also provided demo data including around 80k cells and the cell- and sample-l
 Here we provide the outline of analysis covered by each script:
 
 Preprocessing.r covers the following analysis:
-
 •	Data reading in
-
 •	Data preprocessing
-
 •	Data cleaning
-
 •	Cell type and state identification
 
 
