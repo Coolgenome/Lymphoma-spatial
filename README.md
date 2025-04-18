@@ -20,7 +20,7 @@ Here we provide the outline of analysis covered by each script:
 
 Preprocessing.r covers the following analysis:  
 > •	Data reading in  
-•	Data preprocessing  
+> •	Data preprocessing  
 •	Data cleaning  
 •	DEG analysis (FindAllMarkers function in Seurat, with Wilcoxon rank sum test)  
 •	Cell type and state identification  
