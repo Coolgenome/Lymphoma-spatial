@@ -5,6 +5,7 @@ This repository includes the codes used for generating the main results presente
 The code was originally developed in R (version 4.2.0), with softwares as detailed in the manuscript. To be compatible with updated versions, the code has also been tested in R (version 4.3.1), with the following required packages:
 Seurat (version 5.1.0);
 SeuratObject (version 5.0.2);
+harmony (version 1.2.0);
 ggplot2 (version 3.5.1);
 dplyr (version 1.1.4);
 tidyverse (version 2.0.0);
