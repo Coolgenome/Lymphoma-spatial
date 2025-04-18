@@ -21,9 +21,13 @@ Here we provide the outline of analysis covered by each script:
 Preprocessing.r covers the following analysis:
 
 •	Data reading in
+
 •	Data preprocessing
+
 •	Data cleaning
+
 •	Cell type and state identification
+
 
 Figure 1.r covers the following analysis:
 •	Dimension reduction (UMAP)
