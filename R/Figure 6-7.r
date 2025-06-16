@@ -1,4 +1,4 @@
-### Figure 6 ###
+### Figure 6-7 ###
 
 ### load essential packages ###
 library(Seurat)
@@ -52,7 +52,7 @@ dunnTest(Freq ~ Comparison2_tumor_anatomical_site, data = filter(Tumor_site_FOV_
 
 # similar for comparison of other cell prop. in the FOVs from nodal, IPS, and EN-O.
 
-### Figure 6b  CN compositions tumors from different anatomical sites ###
+### Figure 6b  CN compositions of tumors from different anatomical sites ###
 Tumor_site_comparison_nodal <- filter(Tumor_site_comparison, Tumor_site_comparison$Comparison2_tumor_anatomical_site == "Nodal")
 Tumor_site_comparison_nodal_table <- table(Tumor_site_comparison_nodal$CN_cluster)
 Tumor_site_comparison_nodal_prop <- as.data.frame(prop.table(Tumor_site_comparison_nodal_table))
@@ -66,7 +66,7 @@ ggplot(Tumor_site_comparison_nodal_prop, aes(x="", y=Freq, fill=Var1)) +
 
 # similar for IPS and EN-O cases
 
-### Figure 6c-6d  comparison of cell state prop. in the neighborhood of C0_Tumor-B ###
+### Figure 6c-6d  comparison of cell state prop. in the neighborhoods cnetered by C0_Tumor-B ###
 C0_neighbor_log <- t(my_neighbor_list[["C0_Tumor-B"]])
 C0_neighbor_log <- as.data.frame(log(C0_neighbor_log+1, base=2))
 C0_neighbor_log <- rownames_to_column(C0_neighbor_log, var="Barcode")
@@ -78,7 +78,7 @@ C0_neighbor_log_comparison_tumor_site <- C0_neighbor_log[,c("C0_Tumor-B","C1_PC_
                                                             "C16_Stressed","C17_Epithelial","C18_RBC","Barcode","Comparison2_tumor_anatomical_site")]
 C0_neighbor_log_comparison_tumor_site <- na.omit(C0_neighbor_log_comparison_tumor_site)
 
-# compare the number of C0_Tumor-B in the neighborhood of C0 #
+# compare the number of C0_Tumor-B in the neighborhoods centered by C0 #
 ggplot(C0_neighbor_log_comparison_tumor_site, aes(x=Comparison2_tumor_anatomical_site, y=`C0_Tumor-B`, fill=Comparison2_tumor_anatomical_site))+
     geom_boxplot(outlier.alpha = 0.5, color="#525252",width=0.5)+
     ggtitle("C0_Tumor-B in the neighborhood of C0_Tumor-B")+
@@ -100,7 +100,7 @@ kruskal.test(`C0_Tumor-B` ~ Comparison2_tumor_anatomical_site, data = C0_neighbo
 # For pairwaise comparisons, Dunn's post-hoc test was used.
 dunnTest(`C0_Tumor-B` ~ Comparison2_tumor_anatomical_site, data = C0_neighbor_log_comparison_tumor_site)
 
-# similar for comparison of the number of C5_T in the neighborhood of C0 #
+# similar for comparison of the number of C5_T in the neighborhoods centered by C0 #
 
 ### Figure 6e  CN allocation of T cells ###
 T_cell_metadata <- filter(Lymphoma.meta, Lymphoma.meta$cell_state=="C5_T")
@@ -120,7 +120,7 @@ ggplot(T_cell_niche_comparison_tumor_site_prop,aes(Tumor_site,Proportion,fill=CN
 ### Figure 6f ###
 # FOV images from CosMx SMI were plotted using Spyrrow (https://github.com/liuyunho/Spyrrow) in python (version 3.10.5).
 
-### Figure 6g-6h, 6l ###
+### Figure 7a-7d, 7h ###
 cell_level_sample_meta_tumor_site <- select(Lymphoma.meta, c("Barcode","Comparison2_tumor_anatomical_site")) %>% column_to_rownames(var="Barcode")
 Lymphoma_data <- AddMetaData(Lymphoma_data, cell_level_sample_meta_tumor_site)
 
@@ -157,24 +157,24 @@ ggplot(T_cell_comparison_tumor_site@meta.data, aes(x=Comparison2_tumor_anatomica
 pairwise.t.test(T_cell_comparison_tumor_site@meta.data$T_cytotoxicity_signature1, T_cell_comparison_tumor_site@meta.data$Comparison2_tumor_anatomical_site, p.adjust.method = "BH")
 
 # similar for plotting and comparing the G2/M signature score and exhuastion signature score
+# The comparison of gene expression was based on FindAllMarkers function in Seurat
 
-### Figure 6i ###
+### Figure 7e ###
 # FOV images from CosMx SMI were plotted using Spyrrow (https://github.com/liuyunho/Spyrrow) in python (version 3.10.5).
 
-### Figure 6j-6k was from CODEX images ###
+### Figure 7f was from CODEX images ###
 
-### Figure 6m ###
+### Figure 7i ###
 Exhaustion_markers <- c("LAG3","HAVCR2","PDCD1","ENTPD1")
 
 DotPlot(T_cell_comparison_tumor_site,features = Exhaustion_markers, group.by = "Comparison2_tumor_anatomical_site", scale=10, scale.by = "size")+
     RotatedAxis()+
     scale_color_gradientn(values = seq(0,1,0.1),colours = c("#253494","#4575b4","#abd9e9","#e0f3f8","#ffffbf","#d73027","#800026"))
 
-### Figure 6n ###
+### Figure 7j-7k ###
 # cell-cell communication was performed using Spyrrow in python, as detailed in descriptions for Figure 3g.
 # define functions for calculating aggregrated communication cell pair prop. and communication intensity in different tumor sites
 #a is the cluster id of sender cell, b is the cluster id of receiver cell, mol_a is the ligand from cell a, mol_b is the receptor from cell b
-#in the original analysis, due to the high cell pair number involved in this step, we introduce a random step in the function to downsample the whole dataset to improve computational efficiency. Here since we are working on downsampled data, we omitted this step.
 
 meta_for_cell1 <- select(Lymphoma.meta, c("cell_state","CN_cluster","sample_ID"))
 colnames(meta_for_cell1)[1:2] <- c("cell_state1","CN_cluster1")
@@ -193,7 +193,6 @@ colnames(tumor_sample_comparison_for_commun)[2] <- "tumor_site"
 cell_cell_communication_res <- left_join(cell_cell_communication_res, tumor_sample_comparison_for_commun, by="sample_ID")
 
 aggretrate_tumor_site <- function(a,b,mol_a,mol_b){
-    #cell_cell_communication_res_downsample <- cell_cell_communication_res[sample(nrow(cell_cell_communication_res), 500000), ]
     data_1 <- filter(cell_cell_communication_res, cell_cell_communication_res$cell_state1 %in% a & cell_cell_communication_res$cell_state2 %in% b) 
     data_1 <- data_1[,c(paste0(mol_a,".",mol_b,"_a2b"),"cell_pair","cell1","cell2","cell_state1","CN_cluster1","cell_state2","CN_cluster2","tumor_site")]
     data_2 <- filter(cell_cell_communication_res, cell_cell_communication_res$cell_state1 %in% b & cell_cell_communication_res$cell_state2 %in% a)
@@ -235,4 +234,6 @@ ggplot(CD274_PDCD1_other_T_sum_for_plot, aes(x = LR, y = tumor_site, color = gro
     ggtitle("Interaction intensity") + 
     coord_flip()+
     theme_classic()
+
+# similar for LGALS9 - HAVCR2 interaction
   
