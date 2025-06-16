@@ -26,10 +26,10 @@ kruskal.test(Freq ~ Comparison2_tumor_anatomical_site, data = filter(Tumor_site_
 # For pairwaise comparisons, Dunn's post-hoc test was used. 
 dunnTest(Freq ~ Comparison2_tumor_anatomical_site, data = filter(Tumor_site_FOV_table_prop, Tumor_site_FOV_table_prop$cell_state=="C0_Tumor-B"))
 
-# Comparing the number of C0_Tumor-B in the neighborhood of C0 (Figure 6)
+# Comparing the number of C0_Tumor-B in the neighborhoods centered by C0 (Figure 6)
 kruskal.test(`C0_Tumor-B` ~ Comparison2_tumor_anatomical_site, data = C0_neighbor_log_comparison_tumor_site)
 # For pairwaise comparisons, Dunn's post-hoc test was used.
 dunnTest(`C0_Tumor-B` ~ Comparison2_tumor_anatomical_site, data = C0_neighbor_log_comparison_tumor_site)
 
-# Comparing cytoxicity signature score in T cells from tumors in different anatomical sites (Figure 6)
+# Comparing cytoxicity signature score in T cells from tumors in different anatomical sites (Figure 7)
 pairwise.t.test(T_cell_comparison_tumor_site@meta.data$T_cytotoxicity_signature1, T_cell_comparison_tumor_site@meta.data$Comparison2_tumor_anatomical_site, p.adjust.method = "BH")
