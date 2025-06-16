@@ -53,14 +53,15 @@ Figure 5.r covers the following analysis:
 > •	Comparative analysis of neighborhood compositions of C0_Tumor-B cells between EBV+ and EBV- nodal lesions  
 > •	Comparative analysis of T cell spatial locations and phenotypes between EBV+ and EBV- nodal lesions (Student's t-test for signature score; FindAllMarkers function in Seurat for DEGs)  
 
-Figure 6.r covers the following analysis:  
+Figure 6-7.r covers the following analysis:  
 > •	Comparative analysis of cellular and spatial niche compositions across different tumor anatomical sites (Kruskal-Wallis test with Dunn's post-hoc test for pairwise comparisons)  
 > •	Comparative analysis of neighborhood compositions of C0_Tumor-B cells in different anatomical sites (Kruskal-Wallis test with Dunn's post-hoc test for pairwise comparisons)  
 > •	Comparative analysis of T cell spatial locations, phenotypes, and immune checkpoint interactions across different tumor anatomical sites (Pairwise t-test)  
 
 
 A brief workflow of the analysis is shown below:  
-![Workflow](https://github.com/user-attachments/assets/e7372c73-b98a-4b60-9ef2-41e654853bbc)
+![Workflow](https://github.com/user-attachments/assets/a92c89ef-8781-4791-ac06-54a5f72da5e8)
+
 
 
 
