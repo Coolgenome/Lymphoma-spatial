@@ -81,7 +81,7 @@ ggplot(T_cell_niche_comparison_EBV_prop, aes(EBV_status,Proportion,fill=CN_clust
 ### Figure 5d ###
 # FOV images from CosMx SMI were plotted using Spyrrow (https://github.com/liuyunho/Spyrrow) in python (version 3.10.5).
 
-### Figure 5e  obtian the neighborhood composition matrix of C0_Tumor-B cells ###
+### Figure 5e  obtian the composition matrix of neighborhoods centered by C0_Tumor-B cells ###
 C0_neighbor <- as.data.frame(t(my_neighbor_list[["C0_Tumor-B"]]))
 C0_neighbor <- rownames_to_column(C0_neighbor, var="Barcode")
 C0_neighbor <- left_join(C0_neighbor, Lymphoma.meta, by="Barcode")
@@ -92,7 +92,7 @@ C0_neighbor_comparison_EBV <- C0_neighbor[,c("C0_Tumor-B","C1_PC_IgG","C2_PC_IgA
                                              "C16_Stressed","C17_Epithelial","C18_RBC","Barcode","Comparison1_nodal_EBV_status")]
 C0_neighbor_comparison_EBV <- na.omit(C0_neighbor_comparison_EBV)
 
-# calculate neighborhood compositions of C0_Tumor-B cells in EBV negative cases
+# calculate the compositions of neighborhoods centered by C0_Tumor-B cells in EBV negative cases
 C0_neighbor_comparison_EBV_neg <- filter(C0_neighbor_comparison_EBV, C0_neighbor_comparison_EBV$Comparison1_nodal_EBV_status=="Negative")
 C0_neighbor_comparison_EBV_neg$Comparison1_nodal_EBV_status <- NULL
 C0_neighbor_comparison_EBV_neg <- column_to_rownames(C0_neighbor_comparison_EBV_neg, var="Barcode")
@@ -116,7 +116,7 @@ ggplot(C0_neighbor_comparison_EBV_neg_sum, aes(x="", y=prop, fill=cell_state)) +
                                 "#fff7fb","#fccde5","#bc80bd","#d9d9d9","#ffed6f","#d6604d","#02818a",
                                 "#ccecb5","#80b1d3","#fb9a99","#006837","#6a3d9a"))
 
-# similar for neighborhood compositions of C0_Tumor-B cells in EBV positive cases
+# similar for the compositions of neighbrhoods centered by C0_Tumor-B cells in EBV positive cases
 
 ### Figure 5f-5i ###
 cell_level_sample_meta_EBV <- select(Lymphoma.meta, c("Barcode","Comparison1_nodal_EBV_status")) %>% column_to_rownames(var="Barcode")
