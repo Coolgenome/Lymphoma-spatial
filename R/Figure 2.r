@@ -20,7 +20,7 @@ ggplot(Lymphoma_data@meta.data, aes(x=UMAP1, y=UMAP2, color=cell_state))+
                                   "#6a3d9a"))+
       theme_classic()
 
-### Figure 2b ###
+### Extended Data Figure 2 ###
 cell_state_marker  <-c("MS4A1","CD79A","TCL1A","CD37","IGHM","TUBB","PCNA","TYMS","STMN1","MZB1","XBP1","IGHG1","IGHG2","IGHA1","CD44",
                        "JCHAIN","CD40","CD38","TNFRSF17","CD3D","CD3E","CD3G","CD2","NKG7","CCL5","CD68","CD163","APOC1","APOE",
                        "C1QC","C1QB","C1QA","SPP1","MMP12","DUSP1","FOS","JUN","CXCL8","IL1B","CXCL1/2/3","LGALS1","COL1A1","COL1A2",
@@ -31,9 +31,9 @@ DotPlot(Lymphoma_data,features = cell_state_marker, scale.by = "size", group.by 
     RotatedAxis()+
     scale_color_gradientn(values = seq(0,1,0.1),colours = c("#225ea8","#4575b4","#6baed6","#abd9e9","#e0f3f8","#ffffbf","#d73027","#800026"))
 
-### Figure 2c was created with BioRender ###
+### Figure 2b was created with BioRender ###
 
-### Figure 2d ###
+### Figure 2c ###
 ### neighborhood analysis ###
 # spatial neighborhood was calculated based on the distance between cell centroids, as detailed in the manuscript Method. Here we use 200px as the neighborhood searching radius. #
 Lymphoma.meta <- Lymphoma_data@meta.data
@@ -81,7 +81,7 @@ for (clstype in major.ord){
 
 saveRDS(my_neighbor_list,"./demo_data/my_neighbor_list.rds")
 
-# Following the described steps, we obtianed the nerighborhood composition matrix for each cell state #
+# Following the described steps, we obtianed the composition matrix of neighborhoods centered by each cell state #
 # merge neighborhood composition count matrix for all cells #
 cell_neighbor_df <- c()
 for(i in 1:length(my_neighbor_list)){
@@ -106,7 +106,7 @@ for(i in cell_state){
 Neighbor_sum <- as.data.frame(Neighbor_sum)
 Neighbor_sum$center_cell_state <- rownames(Neighbor_sum)
 
-# calculate cell proportion in each neighborhood #
+# calculate cell proportion in each type of neighborhoods #
 cell.prop <- as.data.frame(prop.table(as.matrix(Neighbor_sum[,0:19]), margin=1))
 cell.prop$center_cell_state <- rownames(cell.prop)
 
@@ -134,11 +134,11 @@ ggplot(cell.prop,aes(center_cell_state, neighbor_cell_prop, fill=neighbor_cell_s
     scale_fill_manual(values = c("#96F148","#ff7f00","#e5f5f9","#bebada","#df65b0","#D10000","#0000FF","#fff7fb","#fccde5","#bc80bd",
                                  "#d9d9d9","#ffed6f","#d6604d","#02818a","#ccecb5","#80b1d3","#fb9a99","#006837","#6a3d9a"))
 
-### Figure 2e-g ###
-# k-means clustering based on neighborhood matrix to obtain 7 unique spatial niches. Here we directly provide the results with CN allocation of cells.
+### Figure 2d-f ###
+# k-means clustering based on neighborhood matrix to obtain 7 unique spatial cellular niches (CN). Here we directly provide the results with CN allocation of cells.
 spatial_niche <- readRDS("./demo_data/spatial_niche.rds")
 
-# project CN clusters in PCA space (Figure 2e) #
+# project CN clusters in PCA space (Figure 2d) #
 cell_neighbor_pca <- prcomp(cell_neighbor_df[,1:19])
 cell_neighbor_pca_coord <- as.data.frame(cell_neighbor_pca$x)
 cell_neighbor_pca_coord <- rownames_to_column(cell_neighbor_pca_coord, var="Barcode")
@@ -149,7 +149,7 @@ plot_ly(cell_neighbor_pca_coord, x = ~PC1, y = ~PC2, z = ~PC3, color = ~CN_clust
         colors=c("#ed2224","#fbb14d","#3B50A3","#eee817","#79c479","#55C7F3","#dad9d9"),
         alpha=0.7, sizes= c(50,50))
 
-# plot cell composition in each CN (Figure 2f) #
+# plot cell composition in each CN (Figure 2e) #
 Lymphoma.meta <- rownames_to_column(Lymphoma.meta, var="Barcode")
 Lymphoma.meta <- left_join(Lymphoma.meta, spatial_niche, by="Barcode")
 
@@ -172,7 +172,7 @@ ggplot(cell.prop,aes(CN_cluster,Proportion,fill=cell_state))+
     theme(axis.ticks.length = unit(0.2,'cm'))+
     guides(fill=guide_legend(title = NULL))
 
-# DEGs among spatial niches (Figure 2g) #
+# DEGs among CNs (Figure 2f) #
 spatial_niche <- column_to_rownames(spatial_niche, var="Barcode")
 Lymphoma_data <- AddMetaData(Lymphoma_data, spatial_niche)
 
@@ -185,5 +185,5 @@ DotPlot(Lymphoma_data,features = CN_marker, scale.by = "size", group.by = "CN_cl
     RotatedAxis()+
     scale_color_gradientn(values = seq(0,1,0.1),colours = c("#4575b4","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d73027","#800026"))
 
-### Figure 2h ###
+### Figure 2g ###
 ### FOV images from CosMx SMI were plotted using Spyrrow (https://github.com/liuyunho/Spyrrow) in python (version 3.10.5).
